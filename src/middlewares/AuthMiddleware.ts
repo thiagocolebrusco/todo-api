@@ -20,7 +20,7 @@ export class AuthMiddleware implements Middleware {
       response.locals.user = decoded as string;
       return next();
     } catch (error) {
-      return response.send({ error: "You are not authenticated." });
+      return response.status(401).send({ error: "You are not authenticated." });
     }
   }
 }
